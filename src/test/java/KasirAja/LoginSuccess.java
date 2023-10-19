@@ -20,12 +20,13 @@ public class LoginSuccess {
         //apply chrome driver setup
         //Membuka halaman login
         driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         driver.get(baseurl);
 
         //assertion halaman login
-        //String loginPageAssert = driver.findElement(By.xpath("//h2[contains(test(), 'hai, kasirAja')]")).getText();
-        //Assert.assertEquals(loginPageAssert, "hai, kasirAja");
+        String loginPageAssert = driver.findElement(By.xpath("/html/body/div/div/div/div/div[1]/h2")).getText();
+        Assert.assertEquals(loginPageAssert, "hai, kasirAja");
 
         //input Email
         driver.findElement(By.id("email")).sendKeys("tdd-selenium@gmail.com");
@@ -35,7 +36,9 @@ public class LoginSuccess {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
 
         //Assert nama toko
-     //   String namaToko = driver.findElement(By.xpath())
+        driver.findElement(By.xpath("//div[contains(text(), 'dashboard')]"));
+        String username = driver.findElement(By.xpath("//dd[contains(text(), 'hai')]/preceding-sibling::dt")).getText();
+        Assert.assertEquals(username, "tdd-selenium");
         //quit
         //driver.close();
     }
@@ -55,8 +58,8 @@ public class LoginSuccess {
         driver.get(baseurl);
 
         //assertion halaman login
-        //String loginPageAssert = driver.findElement(By.xpath("//h2[contains(test(), 'hai, kasirAja')]")).getText();
-        //Assert.assertEquals(loginPageAssert, "hai, kasirAja");
+        String loginPageAssert = driver.findElement(By.xpath("/html/body/div/div/div/div/div[1]/h2")).getText();
+        Assert.assertEquals(loginPageAssert, "hai, kasirAja");
 
         //input Email
         driver.findElement(By.id("email")).sendKeys("tdd-selenium@gmail.com");
