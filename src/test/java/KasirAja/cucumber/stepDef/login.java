@@ -21,7 +21,7 @@ public class login {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get(baseurl);
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
 
         //Assertion Login
         String loginPageAssert = driver.findElement(By.xpath("//h2[contains(text(), 'hai, kasirAja')]")).getText();
