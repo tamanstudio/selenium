@@ -4,6 +4,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +18,7 @@ public class login {
 
     @Given("User launch the web app")
     public void halaman_login_kasirAja(){
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.get(baseurl);
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
